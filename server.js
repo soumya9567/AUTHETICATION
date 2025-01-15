@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import ConnectDB from "./mongodb.js"
 import route from  "./routes/authroute.js" 
+import { SignUp } from "./controller/authcontrol.js"
 
 
 const app = express()
@@ -20,10 +21,16 @@ dotenv.config()
 
  app.use("/auth",route)
 
- app.get('./', (req,res)=>{
-    res.render('home')
+//  app.use('/signup',SignUp)
 
- })
+//  app.get('./', (req,res)=>{
+//     res.render('home')
+
+//  })
+
+//  app.post('/auth/signup',(res,req)=>{
+//    res.render('signup')
+//  })
  app.listen(port,()=>{
     console.log("server loaded port")
  })

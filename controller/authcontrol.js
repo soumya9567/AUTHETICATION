@@ -1,5 +1,10 @@
 import User from "../model/authModel.js"
 
+
+// export const Signupform =async(req,res)=>{
+//   return res.render('signup')
+// }
+
 export const SignUp = async(req,res)=>{
 
     console.log(req.body,"request body")
@@ -15,15 +20,17 @@ export const SignUp = async(req,res)=>{
       if(!ExistingUser){
         const NewUser = await new User({name,email,password})
         await NewUser.save()
-        return res.status(200).json({success:true,message:"user registered successfully",NewUser})
+       
 
+        return res.status(200).json({success:true,message:"user registered successfully",NewUser})
+      
       }else{
-        res.status(500).json("user already exist")
+        return res.status(500).json("user already exist")
       }
-    res.json({message:"Req body",data:req.body})
+    //  return res.json({message:"Req body",data:req.body})
         
     } catch (error) {
-        res.status(500).json({ success:false, message:"failed for sign up " })
+       return res.status(500).json({ success:false, message:"failed for sign up " })
         console.log(error)
     }
 }
@@ -41,7 +48,7 @@ export const getAllUser= async(req,res)=>{
     return res.status(200).json({success:true,message:"successfully get all the users",allUser})
     
   } catch (error) {
-    res.status(500).json({ success:false, message:"failed for sign up " })
+     return res.status(500).json({ success:false, message:"failed for sign up " })
         console.log(error)
   }
 }
@@ -60,8 +67,9 @@ try {
   return res.status(200).json({success:true,message:"user login successfully",user})
   
   
+  
 } catch (error) {
-  res.status(500).json({success:false,message:"failed to signin"})
+  return res.status(500).json({success:false,message:"failed to signin"})
   console.log(error)
   
 }

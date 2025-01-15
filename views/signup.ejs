@@ -7,15 +7,43 @@
 </head>
 <body>
     <h1>sign up</h1>
+    <form action="/auth/signup" method="post">
 
-    <label for="">USER NAME </label>
+    <label for="name">USER NAME </label>
     <input type="text" name="name" id="name">
-    <label for="">EMAIL </label>
-    <input type="text" name="email" id="email">
-    <label for="">password</label>
-    <input type="text" name="password" id="password">
-    <button type="button">SIGNUP</button>
+    <label for="email">EMAIL </label>
+    <input type="email" name="email" id="email">
+    <label for="password">password</label>
+    <input type="password" name="password" id="password">
+    <button type="submit" onclick="alert()">SIGNUP</button>
 
+    <!-- <a href="/au">SIGN IN</a> -->
+</form>
+
+<script>
+async function alert() {
+
+    try{
+    const response = fetch("http://localhost:3000/auth/signin",{
+   method:'GET'
+
+    });
+
+    if(response.ok){
+        const data = await response.json();
+        alert("successfully signup")
+    }else{
+        alert("user not found")
+    }
+    }
+    catch{
+        alert("network issue")
+    }
+   
     
+}
+
+</script>
+
 </body>
 </html>
