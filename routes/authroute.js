@@ -16,7 +16,7 @@ route.get("/signin",(req,res)=>{
 // route.get("/signup",Signupform)
 route.post("/signup",SignUp)
 route.get("/getuser",getAllUser)
-route.post("/sigin",SignIn)
+route.post("/signin",SignIn)
 
 
 

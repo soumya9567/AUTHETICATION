@@ -7,12 +7,13 @@
 </head>
 <body>
     <h1>SIGN IN</h1>
-  <form action="/auth/signin">
-    <label for="">USER NAME </label>
-    <input type="text" name="name" id="name">
+  <form action="/auth/signin" method="post">
+
+    <label for="email">EMAIL </label>
+    <input type="email" name="email" id="email">
     <label for="">password</label>
-    <input type="text" name="password" id="password">
-    <button type="button">SIGNIN</button>
+    <input type="password" name="password" id="password">
+    <button type="submit">SIGNIN</button>
 </form>
 </body>
 </html>
