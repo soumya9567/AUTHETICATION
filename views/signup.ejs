@@ -3,47 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
+    <style>
+        #login{
+          height: 500px;
+            background-color: orange;
+            margin: auto;
+            margin-top: 60px;
+        }
+   input{
+    background-color: orange;
+   }
+       
+    </style>
 </head>
 <body>
-    <h1>sign up</h1>
-    <form action="/auth/signup" method="post">
-
-    <label for="name">USER NAME </label>
-    <input type="text" name="name" id="name">
-    <label for="email">EMAIL </label>
-    <input type="email" name="email" id="email">
-    <label for="password">password</label>
-    <input type="password" name="password" id="password">
-    <button type="submit" onclick="alert()">SIGNUP</button>
-
-    <!-- <a href="/au">SIGN IN</a> -->
-</form>
-
-<script>
-async function alert() {
-
-    try{
-    const response = fetch("http://localhost:3000/auth/signin",{
-   method:'GET'
-
-    });
-
-    if(response.ok){
-        const data = await response.json();
-        alert("successfully signup")
-    }else{
-        alert("user not found")
-    }
-    }
-    catch{
-        alert("network issue")
-    }
-   
     
-}
 
-</script>
+  <!-- NAV -->
+
+  <form action="/auth/signup" method="post" id="form">
+  <div class="min-h-screen   pt-1 bg-black   " id="login-main">
+    <div class=" bg-cover bg-center w-4/12 border-b border-radius-10px mt-16 rounded-lg  " id="login" >
+      <br>
+      <h1  class="text-center text-2xl text-white "><b>SIGN UP</b></h1>
+      <br>
+      <SPAN class="text-center ml-20 text-gray-600">dont't have an account yet?<span class="text-white">sigup</span></SPAN>
+      <br>
+      <br>
+      <!-- <label for="">USER NAME</label> -->
+      <input type="text" name="name" id="name" placeholder="   user name" class="w-60 mt-10 ml-16 pt-2 pr-4 rounded-md border-b border-white  text-black placeholder-grey-600 placeholder-opacity-1">
+      <br>
+      <input type="email" name="email" id="email" placeholder="email" class="w-60 mt-10 ml-16 pt-2 pr-4  rounded-md border-b border-white  text-black">
+      <br>
+      <!-- <label for="">PASSWORD</label> -->
+      <input type="password" name="password" id="password" placeholder="   password" class="w-60 mt-10 ml-16 pt-2 pr-4  rounded-md border-b border-white  text-black">
+      <br>
+
+
+      
+          <button type="submit" class=" text-white mt-24 ml-32 w-40 h-12 rounded-lg bg-black text-white" id="btnlogin">SIGN UP</button>
+    </div>
+   
+
+  </div>
+</form>
 
 </body>
 </html>

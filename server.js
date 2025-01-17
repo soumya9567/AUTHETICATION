@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import ConnectDB from "./mongodb.js"
 import route from  "./routes/authroute.js" 
+
 import { SignUp } from "./controller/authcontrol.js"
 import bcrypt from "bcrypt"
 
@@ -22,7 +23,6 @@ dotenv.config()
  app.set ("view engine","ejs")
 
  app.use("/auth",route)
-
 
 
 
