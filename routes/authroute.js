@@ -19,6 +19,10 @@ route.get("/getuser",getAllUser)
 route.post("/signin",SignIn)
 
 
+// route.get('\check',checkAuth )
+
+
+
 
 
 export default route

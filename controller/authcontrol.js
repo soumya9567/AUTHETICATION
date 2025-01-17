@@ -1,5 +1,7 @@
 import User from "../model/authModel.js"
 import bcrypt, { compare } from "bcrypt"
+import { name } from "ejs"
+import jwt from "jsonwebtoken"
 
 
 // export const Signupform =async(req,res)=>{
@@ -79,12 +81,24 @@ try {
     const matchedpassword = await bcrypt.compare(password,ExistingUser.password)
 
 
-    if(matchedpassword){
-     return res.status(200).json({success:true,message:"login successfully",user:ExistingUser})
-    }
-    else{
+    if(!matchedpassword){
+
+
       return res.status(404).json({success:false,message:"login not successfull"})
     }
+     
+
+
+    const token = jwt.sign({id:ExistingUser._id,},process.env.SECRET_KEY)
+    console.log(token,"my token")
+
+      return res.status(200).json({success:true,message:"login successfully",user:ExistingUser,token})
+
+    
+    
+  
+
+
   }
   
 } catch (error) {
